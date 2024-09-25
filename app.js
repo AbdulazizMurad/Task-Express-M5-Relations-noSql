@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const postsRoutes = require("./api/posts/posts.routes");
 const authorRoutes = require("./api/posts/authors.routes");
+const tagRoutes = require("./api/Tags/tags.routes");
 const connectDb = require("./database");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
@@ -12,7 +13,7 @@ app.use(express.json());
 app.use(morgan("dev"));
 app.use("/api/posts", postsRoutes);
 app.use("/api/authors", authorRoutes);
-
+app.use("/api/tags", tagRoutes);
 app.use((req, res, next) => {
   res.status(404).json({ message: "Path not found" });
 });

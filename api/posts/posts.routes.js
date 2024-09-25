@@ -22,9 +22,9 @@ router.param("postId", async (req, res, next, postId) => {
 
 router.get("/", postsGet);
 router.post("/:authorId", postsCreate);
-
 router.delete("/:postId", postsDelete);
 
 router.put("/:postId", postsUpdate);
+router.put("/tags/:postId", postsUpdate);
 
 module.exports = router;
